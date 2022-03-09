@@ -3,11 +3,24 @@
 
 The repo is the open-source code for the [paper]().
 
+## Dataset
+
+### Brain Imaging
+
+The path of the imaging file is provided by the parameter "--imaging". The brain imaging file should be an RData file containing two variables, "FC" and "subjid". "FC" is a group of functional connectivities stored as a 3D matrix. The last dimension of the 3D matrix is the sample size. For example, in our dataset, the size of "FC" is (279, 279, 98). "subjid" is a list containing all subject's id in "FC". The sample size of the 3D matrix should be equal to the length of "subjid" and each id in the list corresponds with a functional connectivity in order.
+
+### Clinical Labels
+
+The path of the label file is provided by the parameter "--clinical_file". The used column is provided by the parameter "--column"
+
+The label file should be a CSV file, splited by ",". After parsing the label file. The column specified by the parameter "--column" in the label file will be used to fit the PLS model.
+
+
 ## Usage
 
 ```
 usage: main.py [-h] [--output OUTPUT] [--imaging IMAGING]
-               [--clinical_file CLINICAL_FILE] [--id_file ID_FILE]
+               [--clinical_file CLINICAL_FILE] [--column COLUMN]
                [--correlation_threshold CORRELATION_THRESHOLD]
 
 optional arguments:
@@ -17,7 +30,7 @@ optional arguments:
   --clinical_file CLINICAL_FILE
                         The file contains clinical variables, the format is
                         csv
-  --id_file ID_FILE     The file contains subject id, the format is RData
+  --column COLUMN       The column used for prediction 
   --correlation_threshold CORRELATION_THRESHOLD
                         The threshold used to select correlated edges
 ```
