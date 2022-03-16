@@ -11,7 +11,7 @@ The path of the imaging file is provided by the parameter "--imaging". The brain
 
 ### Clinical Labels
 
-The path of the label file that should contain a column named "subjid" is provided by the parameter "--clinical_file". These columns used as the prediction labels are provided by the parameter "--columns". For example, "--column ptsdss1_categorical ptsdss2_categorical ptsdss3_categorical" can be used for our dataset.
+The path of the label file that should contain a column named "subjid" is provided by the parameter "--clinical_file". These columns used as the prediction labels are provided by the parameter "--columns". For example, "--columns ptsdss1_categorical ptsdss2_categorical ptsdss3_categorical" can be used for our dataset.
 
 The label file should be a CSV file, splited by ",". After parsing the label file. These columns specified by the parameter "--columns" in the label file will be used to fit the PLS model.
 
