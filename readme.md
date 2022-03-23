@@ -40,8 +40,10 @@ The label file should be a CSV file, splited by ",". After parsing the label fil
 ## API
 
 ```python
-PLSForBrainImaging(component_range=(3, 10), scale=True, max_iter=500, tol=1e-06, 
-                    correlation_threshold=0.28, edge_selection_threshold=1.96, output_path='PLS_result/', repeat_time=1000)
+PLSForBrainImaging(component_range=(3, 10), scale=True, 
+                    max_iter=500, tol=1e-06, 
+                    correlation_threshold=0.28, edge_selection_threshold=1.96, 
+                    output_path='PLS_result/', repeat_time=1000)
 ```
 
 - **component_range**, default=(3, 10)
