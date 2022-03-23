@@ -129,7 +129,7 @@ The X loading matrix is ndarray of shape (n_imaging_features, n_components). The
 ### Identify significant edges by X loading
 To obtain a more robust result, we repeat the training process several times and identify these brain connectivity with significant edge weights. Significant edges for each component can be found in files whose paths are "result/original_{component index}_by_rank.edge". 
 
-We visualize these top (τ = 1.96) brain connectivity in different components.
+We visualize these top (edge_selection_threshold = 1.96) brain connectivity in different components.
 
 ![](result/original-concat-0.png)
 ![](result/original-concat-1.png)
