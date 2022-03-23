@@ -107,7 +107,8 @@ Our PLSForBrainImaging will try different component numbers and find one that be
 
 ### Performance
 The coefficient of determination is applied as the evaluation metric.
-R^2: 0.6358
+
+**R^2**: 0.6358
 
 ### Y loading
 
