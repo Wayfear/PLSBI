@@ -37,7 +37,7 @@ The path of the label file that should contain a column named "subjid" is provid
 The label file should be a CSV file, splited by ",". After parsing the label file. These columns specified by the parameter "--columns" in the label file will be used to fit the PLS model. -->
 
 
-## API
+## Parameters
 
 ```python
 PLSForBrainImaging(component_range=(3, 10), scale=True, 
