@@ -44,31 +44,33 @@ PLSForBrainImaging(component_range=(3, 10), scale=True, max_iter=500, tol=1e-06,
                     correlation_threshold=0.28, edge_selection_threshold=1.96, output_path='PLS_result/', repeat_time=1000)
 ```
 
-- component_range, default=(3, 10)
+- **component_range**, default=(3, 10)
 The range of the number of components to search.
 
-- scale, bool, default=True
+- **scale**, bool, default=True
 Whether to scale X and Y.
 
-- max_iter, int, default=500
+- **max_iter**, int, default=500
 The maximum number of iterations of the power method when algorithm='nipals'. Ignored otherwise.
 
-- tol, float, default=1e-06
+- **tol**, float, default=1e-06
 The tolerance used as convergence criteria in the power method: the algorithm stops whenever the squared norm of u_i - u_{i-1} is less than tol, where u corresponds to the left singular vector.
 
-- correlation_threshold, float, default=0.28. The threshold is used to select correlated edges.
+- **correlation_threshold**, float, default=0.28. The threshold is used to select correlated edges.
 
-- edge_selection_threshold, float, default=1.96. The threshold is used to select significant brain edges.
+- **edge_selection_threshold**, float, default=1.96. The threshold is used to select significant brain edges.
 
-- output_path, string, default="result/". The folder for storing results.
+- **output_path**, string, default="result/". The folder for storing results.
 
-- repeat_time, int, default=1000. The repeat time of PLS. The PLS is training with several repetitions to identify these brain connectivity with significantly high weights.
+- **repeat_time**, int, default=1000. The repeat time of PLS. The PLS is training with several repetitions to identify these brain connectivity with significantly high weights.
 
 ## Usage
 
 ```python
-pls = PLSForBrainImaging(component_range=(3, 10), scale=True, max_iter=500, tol=1e-06, 
-                    correlation_threshold=0.28, edge_selection_threshold=1.96, output_path='PLS_result/', repeat_time=1000)
+pls = PLSForBrainImaging(component_range=(3, 10), scale=True, 
+                    max_iter=500, tol=1e-06, 
+                    correlation_threshold=0.28, edge_selection_threshold=1.96, 
+                    output_path='PLS_result/', repeat_time=1000)
 
 # X is ndarray of shape (n_samples, n_imaging_features), 
 # Y is ndarray of shape (n_samples, n_labels), 
