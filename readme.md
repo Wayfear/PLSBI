@@ -1,25 +1,25 @@
 # Partial Least Square Regression for Brain Imaging
 
-PLS-PTSD is a *unified*, *modular* and *reproducible* package established for brain network analysis with Partial Least Square Regression. It is designed to apply PLS with accessible datasets, identify significant brain connectivity associated with given targets and foster a collaborative environment within computational neuroscience and other related communities. This library is built upon [scikit-learn](https://scikit-learn.org/stable/).
+PLSBI is a *unified*, *modular* and *reproducible* package established for brain network analysis with Partial Least Square Regression. It is designed to apply PLS with accessible datasets, identify significant brain connectivity associated with given targets and foster a collaborative environment within computational neuroscience and other related communities. This library is built upon [scikit-learn](https://scikit-learn.org/stable/).
 
 
 ---
-[![Wayfear - PLS-PTSD](https://img.shields.io/static/v1?label=Wayfear&message=PLS-PTSD&color=blue&logo=github)](https://github.com/Wayfear/PLS-PTSD "Go to GitHub repo")
-[![stars - PLS-PTSD](https://img.shields.io/github/stars/Wayfear/PLS-PTSD?style=social)](https://github.com/Wayfear/PLS-PTSD)
-[![forks - PLS-PTSD](https://img.shields.io/github/forks/Wayfear/PLS-PTSD?style=social)](https://github.com/Wayfear/PLS-PTSD)
-![language](https://img.shields.io/github/languages/top/Wayfear/PLS-PTSD?color=lightgrey)
-![lines](https://img.shields.io/tokei/lines/github/Wayfear/PLS-PTSD?color=red)
-![license](https://img.shields.io/github/license/Wayfear/PLS-PTSD)
-![visitor](https://visitor-badge.glitch.me/badge?page_id=PLS-PTSD)
-![issue](https://img.shields.io/github/issues/Wayfear/PLS-PTSD)
+[![Wayfear - PLSBI](https://img.shields.io/static/v1?label=Wayfear&message=PLSBI&color=blue&logo=github)](https://github.com/Wayfear/PLSBI "Go to GitHub repo")
+[![stars - PLSBI](https://img.shields.io/github/stars/Wayfear/PLSBI?style=social)](https://github.com/Wayfear/PLSBI)
+[![forks - PLSBI](https://img.shields.io/github/forks/Wayfear/PLSBI?style=social)](https://github.com/Wayfear/PLSBI)
+![language](https://img.shields.io/github/languages/top/Wayfear/PLSBI?color=lightgrey)
+![lines](https://img.shields.io/tokei/lines/github/Wayfear/PLSBI?color=red)
+![license](https://img.shields.io/github/license/Wayfear/PLSBI)
+![visitor](https://visitor-badge.glitch.me/badge?page_id=PLSBI)
+![issue](https://img.shields.io/github/issues/Wayfear/PLSBI)
 ---
 
 # Installation
 
 To install BrainGB as a package, simply run
 ```shell
-git clone https://github.com/Wayfear/PLS-PTSD
-cd PLS-PTSD
+git clone https://github.com/Wayfear/PLSBI
+cd PLSBI
 pip install -e .
 ```
 
