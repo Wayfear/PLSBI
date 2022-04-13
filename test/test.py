@@ -15,7 +15,7 @@ from sklearn.model_selection import cross_val_predict, KFold
 from sklearn.metrics import mean_squared_error, r2_score
 import matplotlib.pyplot as plt
 import warnings
-from PLSBI import PLSForBrainImaging
+from plsbi import PLSForBrainImaging
 warnings.filterwarnings("ignore")
 
 

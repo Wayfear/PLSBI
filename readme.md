@@ -14,14 +14,14 @@ PLSBI is a *unified*, *modular* and *reproducible* package established for brain
 ![issue](https://img.shields.io/github/issues/Wayfear/PLSBI)
 ---
 
-# Installation
+<!-- # Installation
 
 To install BrainGB as a package, simply run
 ```shell
 git clone https://github.com/Wayfear/PLSBI
 cd PLSBI
 pip install -e .
-```
+``` -->
 
 
 <!-- ## Dataset -->
