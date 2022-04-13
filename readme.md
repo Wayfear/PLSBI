@@ -14,14 +14,14 @@ PLSBI is a *unified*, *modular* and *reproducible* package established for brain
 ![issue](https://img.shields.io/github/issues/Wayfear/PLSBI)
 ---
 
-<!-- # Installation
+# Installation
 
 To install BrainGB as a package, simply run
 ```shell
 git clone https://github.com/Wayfear/PLSBI
 cd PLSBI
 pip install -e .
-``` -->
+```
 
 
 <!-- ## Dataset -->
@@ -40,6 +40,8 @@ The label file should be a CSV file, splited by ",". After parsing the label fil
 ## Parameters
 
 ```python
+from PLSBI import PLSForBrainImaging
+
 PLSForBrainImaging(component_range=(3, 10), scale=True, 
                     max_iter=500, tol=1e-06, 
                     correlation_threshold=0.28, edge_selection_threshold=1.96, 
