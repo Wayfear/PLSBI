@@ -97,8 +97,38 @@ optional arguments:
                         The threshold used to select correlated edges
 ``` -->
 
-## Output
+## Example Output
 
+```bash
+Pre-screening: Selected_edge 791
+
+Suggested number of components:  5
+When using the best component:
+        R2 calib: 0.888
+        R2 CV: 0.661
+        MSE calib: 0.112
+        MSE CV: 0.339
+
+Performance: R^2: 0.6358
+
+X loading:
+
+Component1, threshold: 1.96, edge num: 38, the result saved in result/original_0_by_rank.edge
+Component2, threshold: 1.96, edge num: 35, the result saved in result/original_1_by_rank.edge
+Component3, threshold: 1.96, edge num: 38, the result saved in result/original_2_by_rank.edge
+Component4, threshold: 1.96, edge num: 35, the result saved in result/original_3_by_rank.edge
+Component5, threshold: 1.96, edge num: 41, the result saved in result/original_4_by_rank.edge
+
+Y Loading:
+
+           Component1  Component2  Component3  Component4  Component5
+Variable1   -0.089953    0.064141   -0.033195    0.109111   -0.048392
+Variable2   -0.082162    0.100282    0.087243   -0.004185   -0.065318
+Variable3   -0.099847    0.056474    0.022567    0.039037    0.090056
+Variable4   -0.085880    0.076129   -0.106163   -0.038888    0.008044
+```
+
+## Example
 Here we use the PTSD dataset mentioned in our [paper]() to demonstrate the output of PLSForBrainImaging.
 
 ### The process of finding the optimal component number
@@ -114,12 +144,12 @@ The coefficient of determination is applied as the evaluation metric.
 
 The Y loading matrix is ndarray of shape (n_targets, n_components). The element in the ith row and jth column can be seen as the importance between the PSS subdimension score i and the PLSR latent component j.
 
-|     column      | comp 1 | comp 2 | comp 3 | comp 4 | comp 5 |
-|:---------------:|:------:|:------:|:------:|:------:|:------:|
-|    INTRUSIVE    | 0.090  | 0.064  | -0.033 | 0.109  | -0.048 |
-|    AVOIDANCE    | 0.082  | 0.100  | 0.087  | -0.004 | -0.065 |
-| NEGATIVE AFFECT | 0.100  | 0.056  | 0.023  | 0.039  | 0.090  |
-|   HYERAROUSAL   | 0.086  | 0.076  | -0.106 | -0.039 | 0.008  |
+|  column   | comp 1 | comp 2 | comp 3 | comp 4 | comp 5 |
+|:---------:|:------:|:------:|:------:|:------:|:------:|
+| Clinical1 | 0.090  | 0.064  | -0.033 | 0.109  | -0.048 |
+| Clinical2 | 0.082  | 0.100  | 0.087  | -0.004 | -0.065 |
+| Clinical3 | 0.100  | 0.056  | 0.023  | 0.039  | 0.090  |
+| Clinical4 | 0.086  | 0.076  | -0.106 | -0.039 | 0.008  |
 
 
 ### X loading
