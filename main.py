@@ -163,15 +163,20 @@ def main(args):
     plr.fit(X, y)
 
     print('## Y Loading\n')
-    header = [f'comp {j+1}' for j in range(suggest_com_num)]
+    header = [f'Component{j+1}' for j in range(suggest_com_num)]
+    index = [f'Variable{i+1}' for i in range(y.shape[1])]
 
-    print(f"|column|{'|'.join(header)}|")
-    print(f"|{'|'.join([':-:']*(len(header)+1))}|")
-    for i in range(y.shape[1]):
-        output = f"|{clinical_column[i+1]}|"
-        for j in range(suggest_com_num):
-            output += f'{plr.y_loadings_[i, j]:.3f}|'
-        print(output)
+    df = pd.DataFrame(plr.y_loadings_, columns=header, index=index)
+
+    print(df)
+
+    # print(f"|column|{'|'.join(header)}|")
+    # print(f"|{'|'.join([':-:']*(len(header)+1))}|")
+    # for i in range(y.shape[1]):
+    #     output = f"|{clinical_column[i+1]}|"
+    #     for j in range(suggest_com_num):
+    #         output += f'{plr.y_loadings_[i, j]:.3f}|'
+    #     print(output)
 
 
 if __name__ == "__main__":

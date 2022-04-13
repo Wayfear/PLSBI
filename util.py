@@ -202,6 +202,8 @@ def generate_edge_matrix_by_p_value(edge_indexs, x_loading, all_node_num, output
         np.savetxt(
             output_folder/f'original_{i}_by_rank.edge', edge_matrix,  fmt='%1.5f')
 
+        print(f"Result saved in f{output_folder/f'original_{i}_by_rank.edge'}")
+
     for i in range(component):
         edges_list = []
         edge_matrix = np.zeros((all_node_num, all_node_num))
