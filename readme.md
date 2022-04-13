@@ -16,7 +16,7 @@ PLSBI is a *unified*, *modular* and *reproducible* package established for brain
 
 # Installation
 
-To install BrainGB as a package, simply run
+To install PLSBI as a package, simply run
 ```shell
 git clone https://github.com/Wayfear/PLSBI
 cd PLSBI
