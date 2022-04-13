@@ -66,16 +66,27 @@ The tolerance used as convergence criteria in the power method: the algorithm st
 
 - **repeat_time**, int, default=1000. The repeat time of PLS. The PLS is training with several repetitions to identify these brain connectivity with significantly high weights.
 
+
+- **X**, ndarray of shape (n_samples, n_imaging_features)
+
+- **Y**, ndarray of shape (n_samples, n_labels)
+
+## Attribute
+
+- **x_loading**, 
+- **y_loading**
+
+
 ## Usage
 
 ```python
 pls = PLSForBrainImaging(component_range=(3, 10), scale=True, 
                     max_iter=500, tol=1e-06, 
                     correlation_threshold=0.28, edge_selection_threshold=1.96, 
-                    output_path='PLS_result/', repeat_time=1000)
+                    output_path='result/', repeat_time=1000)
 
-# X is ndarray of shape (n_samples, n_imaging_features), 
-# Y is ndarray of shape (n_samples, n_labels), 
+# X is ndarray of shape (n_samples, n_imaging_features), n_samples is the sample size, 
+# Y is ndarray of shape (n_samples, n_labels), Y are continuous variables
 pls.fit(X, Y)
 ```
 
@@ -100,8 +111,6 @@ optional arguments:
 ## Example Output
 
 ```bash
-Pre-screening: Selected_edge 791
-
 Suggested number of components:  5
 When using the best component:
         R2 calib: 0.888
@@ -109,18 +118,22 @@ When using the best component:
         MSE calib: 0.112
         MSE CV: 0.339
 
-Performance: R^2: 0.6358
+X Loading
+Component1, threshold: 1.96, edge num: 38
+Component2, threshold: 1.96, edge num: 35
+Component3, threshold: 1.96, edge num: 38
+Component4, threshold: 1.96, edge num: 35
+Component5, threshold: 1.96, edge num: 41
+The result of Component1 saved in fPLS_result/original_0_by_rank.edge
+The result of Component2 saved in fPLS_result/original_1_by_rank.edge
+The result of Component3 saved in fPLS_result/original_2_by_rank.edge
+The result of Component4 saved in fPLS_result/original_3_by_rank.edge
+The result of Component5 saved in fPLS_result/original_4_by_rank.edge
 
-X loading:
+Performance 
+R2: 0.6358
 
-Component1, threshold: 1.96, edge num: 38, the result saved in result/original_0_by_rank.edge
-Component2, threshold: 1.96, edge num: 35, the result saved in result/original_1_by_rank.edge
-Component3, threshold: 1.96, edge num: 38, the result saved in result/original_2_by_rank.edge
-Component4, threshold: 1.96, edge num: 35, the result saved in result/original_3_by_rank.edge
-Component5, threshold: 1.96, edge num: 41, the result saved in result/original_4_by_rank.edge
-
-Y Loading:
-
+Y Loading
            Component1  Component2  Component3  Component4  Component5
 Variable1   -0.089953    0.064141   -0.033195    0.109111   -0.048392
 Variable2   -0.082162    0.100282    0.087243   -0.004185   -0.065318
@@ -133,14 +146,14 @@ Here we use the PTSD dataset mentioned in our [paper]() to demonstrate the outpu
 
 ### The process of finding the optimal component number
 Our PLSForBrainImaging will try different component numbers and find one that best fits training data.
-![](result/suggest_com_num.png)
+![](PLS_result/suggest_com_num.png)
 
 ### Performance
 The coefficient of determination is applied as the evaluation metric.
 
 **R^2**: 0.6358
 
-### Y loading
+### Y Loading
 
 The Y loading matrix is ndarray of shape (n_targets, n_components). The element in the ith row and jth column can be seen as the importance between the PSS subdimension score i and the PLSR latent component j.
 
@@ -152,7 +165,7 @@ The Y loading matrix is ndarray of shape (n_targets, n_components). The element 
 | Clinical4 | 0.086  | 0.076  | -0.106 | -0.039 | 0.008  |
 
 
-### X loading
+### X Loading
 
 The X loading matrix is ndarray of shape (n_imaging_features, n_components). The element in the ith row and jth column can be seen as the importance between the ith imaging features and the PLSR latent component j.
 
