@@ -67,12 +67,12 @@ The tolerance used as convergence criteria in the power method: the algorithm st
 - **repeat_time**, int, default=1000. The repeat time of PLS. The PLS is training with several repetitions to identify these brain connectivity with significantly high weights.
 
 
-## Attribute
+## Attributes
 
 - **x_loading**, ndarray of shape (repeat_time, n_selected_edge, n_components), n_selected_edge is the number of used ROIs, n_components is the number of component. The loadings of X.
 - **y_loading**, ndarray of shape (n_targets, n_components). The loadings of Y. n_targets is the number of clinical variables, n_components is the number of components. The loadings of Y.
 
-## Method
+## Methods
 
 ### **fit(X, y)**
 
