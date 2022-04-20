@@ -78,11 +78,11 @@ The tolerance used as convergence criteria in the power method: the algorithm st
 
 - Fit model to data.
 
-- Parameters: 
+- Parameters: 　
 **X**, a ndarray of shape (n_samples, n_node_size, n_node_size), where n_samples is the number of subjects, n_node_size is the number of ROIs.
 **Y**, a ndarray of shape (n_samples, n_targets), where n_samples is the number of subjects, n_targets is the number of clinical variables.
 
-- Return: Fitted model.
+- Return: **self**, object. Fitted model.
 
 ### predict(X)
 
@@ -91,7 +91,7 @@ The tolerance used as convergence criteria in the power method: the algorithm st
 - Parameters: 
 **X**, a ndarray of shape (n_samples, n_node_size, n_node_size), where n_samples is the number of subjects, n_node_size is the number of ROIs. Samples
 
-- Return: y_pred, a ndarray of shape (n_samples, n_targets). Returns predicted values.
+- Return: **y_pred**, a ndarray of shape (n_samples, n_targets). Returns predicted values.
 
 ### score(X, y)
 
@@ -103,7 +103,7 @@ The tolerance used as convergence criteria in the power method: the algorithm st
 **X**, a ndarray of shape (n_samples, n_node_size, n_node_size), where n_samples is the number of subjects, n_node_size is the number of ROIs.
 **Y**, a ndarray of shape (n_samples, n_targets), where n_samples is the number of subjects, n_targets is the number of clinical variables.
 
-- Return: Score, float. Returns the R^2 score.
+- Return: **Score**, float. Returns the R^2 score.
 
 ## Usage
 
