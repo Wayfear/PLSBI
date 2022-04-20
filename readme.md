@@ -50,7 +50,7 @@ PLSForBrainImaging(component_range=(3, 10), scale=True,
 The range of the number of components to search.
 
 - **scale**, bool, default=True
-Whether to scale X and Y.
+Whether to scale X and y.
 
 - **max_iter**, int, default=500
 The maximum number of iterations of the power method when algorithm='nipals'. Ignored otherwise.
@@ -70,7 +70,7 @@ The tolerance used as convergence criteria in the power method: the algorithm st
 ## Attributes
 
 - **x_loading**, ndarray of shape (repeat_time, n_selected_edge, n_components), n_selected_edge is the number of used ROIs, n_components is the number of component. The loadings of X.
-- **y_loading**, ndarray of shape (n_targets, n_components). The loadings of Y. n_targets is the number of clinical variables, n_components is the number of components. The loadings of Y.
+- **y_loading**, ndarray of shape (n_targets, n_components). The loadings of y. n_targets is the number of clinical variables, n_components is the number of components. The loadings of y.
 
 ## Methods
 
@@ -80,7 +80,7 @@ The tolerance used as convergence criteria in the power method: the algorithm st
 
 - Parameters: 　
 **X**, a ndarray of shape (n_samples, n_node_size, n_node_size), where n_samples is the number of subjects, n_node_size is the number of ROIs.
-**Y**, a ndarray of shape (n_samples, n_targets), where n_samples is the number of subjects, n_targets is the number of clinical variables.
+**y**, a ndarray of shape (n_samples, n_targets), where n_samples is the number of subjects, n_targets is the number of clinical variables.
 
 - Return: **self**, object. Fitted model.
 
@@ -101,7 +101,7 @@ The tolerance used as convergence criteria in the power method: the algorithm st
 
 - Parameters: 
 **X**, a ndarray of shape (n_samples, n_node_size, n_node_size), where n_samples is the number of subjects, n_node_size is the number of ROIs.
-**Y**, a ndarray of shape (n_samples, n_targets), where n_samples is the number of subjects, n_targets is the number of clinical variables.
+**y**, a ndarray of shape (n_samples, n_targets), where n_samples is the number of subjects, n_targets is the number of clinical variables.
 
 - Return: **Score**, float. Returns the R^2 score.
 
@@ -116,8 +116,8 @@ pls = PLSForBrainImaging(component_range=(3, 10), scale=True,
                     output_path='result/', repeat_time=1000)
 
 # X is ndarray of shape (n_samples, n_node_size, n_node_size)
-# Y is ndarray of shape (n_samples, n_targets)
-model = pls.fit(X, Y)
+# y is ndarray of shape (n_samples, n_targets)
+model = pls.fit(X, y)
 
 ```
 
