@@ -95,7 +95,9 @@ The tolerance used as convergence criteria in the power method: the algorithm st
 
 ### score(X, y)
 
-- Return the coefficient of determination of the prediction.
+- Return the coefficient of determination of the prediction. The coefficient of determination is applied as the evaluation metric. The coefficient of determination  is defined as (1-mu/nu), where mu is the residual sum of squares ((y_true - y_pred)** 2).sum() and nu is the total sum of squares ((y_true - y_true.mean()) ** 2).sum(). The best possible score is 1.0 and it can be negative (because the model can be arbitrarily worse). A constant model that always predicts the expected value of y, disregarding the input features, would get a score of 0.0.
+
+
 
 - Parameters: 
 **X**, a ndarray of shape (n_samples, n_node_size, n_node_size), where n_samples is the number of subjects, n_node_size is the number of ROIs.
@@ -181,8 +183,6 @@ Our PLSForBrainImaging will try different component numbers and find one that be
 ![](PLS_result/suggest_com_num.png)
 
 ### Performance
-
-The coefficient of determination is applied as the evaluation metric. The coefficient of determination  is defined as (1-mu/nu), where mu is the residual sum of squares ((y_true - y_pred)** 2).sum() and nu is the total sum of squares ((y_true - y_true.mean()) ** 2).sum(). The best possible score is 1.0 and it can be negative (because the model can be arbitrarily worse). A constant model that always predicts the expected value of y, disregarding the input features, would get a  score of 0.0.
 
 **R^2**: 0.6358
 
