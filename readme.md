@@ -69,15 +69,41 @@ The tolerance used as convergence criteria in the power method: the algorithm st
 - **repeat_time**, int, default=1000. The repeat time of PLS. The PLS is training with several repetitions to identify these brain connectivity with significantly high weights.
 
 
-- **X**, ndarray of shape (n_samples, n_node_size, n_node_size)
-
-- **Y**, ndarray of shape (n_samples, n_labels)
-
 ## Attribute
 
-- **x_loading**, 
-- **y_loading**
+- **x_loading**, ndarray of shape (repeat_time, n_selected_edge, n_components), n_selected_edge is the number of used ROIs, n_components is the number of component. The loadings of X.
+- **y_loading**, ndarray of shape (n_targets, n_components). The loadings of Y. n_targets is the number of clinical variables, n_components is the number of components. The loadings of Y.
 
+## Method
+
+### **fit(X, y)**
+
+- Fit model to data.
+
+- Parameters: 
+**X**, a ndarray of shape (n_samples, n_node_size, n_node_size), wherre n_samples is the number of subjects, n_node_size is the number of ROIs.
+**Y**, a ndarray of shape (n_samples, n_targets), where n_samples is the number of subjects, n_targets is the number of clinical variables.
+
+- Return: Fitted model.
+
+### predict(X)
+
+- Predict targets of given samples.
+
+- Parameters: 
+**X**, a ndarray of shape (n_samples, n_node_size, n_node_size), n_samples is the number of subjects, n_node_size is the number of ROIs. Samples
+
+- Return: y_pred, a ndarray of shape (n_samples, n_targets). Returns predicted values.
+
+### score(X, y)
+
+- Return the coefficient of determination of the prediction.
+
+- Parameters: 
+**X**, a ndarray of shape (n_samples, n_node_size, n_node_size), where n_samples is the number of subjects, n_node_size is the number of ROIs.
+**Y**, a ndarray of shape (n_samples, n_targets), where n_samples is the number of subjects, n_targets is the number of clinical variables.
+
+- Return: Score, float. Returns the R^2 score.
 
 ## Usage
 
@@ -87,9 +113,10 @@ pls = PLSForBrainImaging(component_range=(3, 10), scale=True,
                     correlation_threshold=0.28, edge_selection_threshold=1.96, 
                     output_path='result/', repeat_time=1000)
 
-# X is ndarray of shape (n_samples, n_imaging_features), n_samples is the sample size, 
-# Y is ndarray of shape (n_samples, n_labels), Y are continuous variables
-pls.fit(X, Y)
+# X is ndarray of shape (n_samples, n_node_size, n_node_size)
+# Y is ndarray of shape (n_samples, n_targets), Y are continuous variables
+model = pls.fit(X, Y)
+
 ```
 
 
@@ -126,11 +153,11 @@ Component2, threshold: 1.96, edge num: 35
 Component3, threshold: 1.96, edge num: 38
 Component4, threshold: 1.96, edge num: 35
 Component5, threshold: 1.96, edge num: 41
-The result of Component1 saved in fPLS_result/original_0_by_rank.edge
-The result of Component2 saved in fPLS_result/original_1_by_rank.edge
-The result of Component3 saved in fPLS_result/original_2_by_rank.edge
-The result of Component4 saved in fPLS_result/original_3_by_rank.edge
-The result of Component5 saved in fPLS_result/original_4_by_rank.edge
+The result of Component1 saved in PLS_result/original_0_by_rank.edge
+The result of Component2 saved in PLS_result/original_1_by_rank.edge
+The result of Component3 saved in PLS_result/original_2_by_rank.edge
+The result of Component4 saved in PLS_result/original_3_by_rank.edge
+The result of Component5 saved in PLS_result/original_4_by_rank.edge
 
 Performance 
 R2: 0.6358
@@ -151,7 +178,8 @@ Our PLSForBrainImaging will try different component numbers and find one that be
 ![](PLS_result/suggest_com_num.png)
 
 ### Performance
-The coefficient of determination is applied as the evaluation metric.
+
+The coefficient of determination is applied as the evaluation metric. The coefficient of determination  is defined as (1-mu/nu), where mu is the residual sum of squares ((y_true - y_pred)** 2).sum() and nu is the total sum of squares ((y_true - y_true.mean()) ** 2).sum(). The best possible score is 1.0 and it can be negative (because the model can be arbitrarily worse). A constant model that always predicts the expected value of y, disregarding the input features, would get a  score of 0.0.
 
 **R^2**: 0.6358
 
