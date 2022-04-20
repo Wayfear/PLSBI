@@ -40,8 +40,6 @@ The label file should be a CSV file, splited by ",". After parsing the label fil
 ## Parameters
 
 ```python
-from PLSBI import PLSForBrainImaging
-
 PLSForBrainImaging(component_range=(3, 10), scale=True, 
                     max_iter=500, tol=1e-06, 
                     correlation_threshold=0.28, edge_selection_threshold=1.96, 
@@ -108,6 +106,8 @@ The tolerance used as convergence criteria in the power method: the algorithm st
 ## Usage
 
 ```python
+from PLSBI import PLSForBrainImaging
+
 pls = PLSForBrainImaging(component_range=(3, 10), scale=True, 
                     max_iter=500, tol=1e-06, 
                     correlation_threshold=0.28, edge_selection_threshold=1.96, 
