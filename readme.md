@@ -114,7 +114,7 @@ pls = PLSForBrainImaging(component_range=(3, 10), scale=True,
                     output_path='result/', repeat_time=1000)
 
 # X is ndarray of shape (n_samples, n_node_size, n_node_size)
-# Y is ndarray of shape (n_samples, n_targets), Y are continuous variables
+# Y is ndarray of shape (n_samples, n_targets)
 model = pls.fit(X, Y)
 
 ```
