@@ -137,7 +137,13 @@ optional arguments:
                         The threshold used to select correlated edges
 ``` -->
 
-## Example Output
+
+## Example
+Here we use the PTSD dataset mentioned in our [paper]() to demonstrate the output of PLSForBrainImaging.
+
+
+
+### Example Output
 
 ```bash
 Suggested number of components:  5
@@ -169,9 +175,6 @@ Variable2   -0.082162    0.100282    0.087243   -0.004185   -0.065318
 Variable3   -0.099847    0.056474    0.022567    0.039037    0.090056
 Variable4   -0.085880    0.076129   -0.106163   -0.038888    0.008044
 ```
-
-## Example
-Here we use the PTSD dataset mentioned in our [paper]() to demonstrate the output of PLSForBrainImaging.
 
 ### The process of finding the optimal component number
 Our PLSForBrainImaging will try different component numbers and find one that best fits training data.
