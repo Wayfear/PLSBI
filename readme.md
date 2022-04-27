@@ -72,7 +72,7 @@ The tolerance used as convergence criteria in the power method: the algorithm st
 - **x_loading**, ndarray of shape (repeat_time, n_selected_edge, n_components), n_selected_edge is the number of used ROIs, n_components is the number of component. The loadings of X.
 - **y_loading**, ndarray of shape (n_targets, n_components). The loadings of y. n_targets is the number of clinical variables, n_components is the number of components. The loadings of y.
 
-## Methods
+## Functoins to call
 
 ### **fit(X, y)**
 
@@ -95,6 +95,7 @@ The tolerance used as convergence criteria in the power method: the algorithm st
 
 ### score(X, y)
 
+<!-- itemline -->
 - Return the coefficient of determination of the prediction. The coefficient of determination is applied as the evaluation metric. The coefficient of determination  is defined as (1-mu/nu), where mu is the residual sum of squares ((y_true - y_pred)** 2).sum() and nu is the total sum of squares ((y_true - y_true.mean()) ** 2).sum(). The best possible score is 1.0 and it can be negative (because the model can be arbitrarily worse). A constant model that always predicts the expected value of y, disregarding the input features, would get a score of 0.0.
 
 
@@ -150,10 +151,8 @@ Here we use the PTSD dataset mentioned in our [paper]() to demonstrate the outpu
 ```bash
 Suggested number of components:  5
 When using the best component:
-        R2 calib: 0.888
-        R2 CV: 0.661
-        MSE calib: 0.112
-        MSE CV: 0.339
+        R^2 Cross Validation: 0.661
+        MSE Cross Validation: 0.339
 
 X Loading
 Component1, threshold: 1.96, edge num: 38
@@ -184,7 +183,7 @@ Our PLSForBrainImaging will try different component numbers and find one that be
 
 ### Performance
 
-**R^2**: 0.6358
+**R^2 Cross Validation**: 0.6358
 
 ### Y Loading
 
@@ -204,12 +203,21 @@ The X loading matrix is ndarray of shape (n_imaging_features, n_components). The
 
 
 ### Identify significant edges by X loading
-To obtain a more robust result, we repeat the training process several times and identify these brain connectivity with significant edge weights. Significant edges for each component can be found in files whose paths are "result/original_{component index}_by_rank.edge". 
 
-<!-- We visualize these top (edge_selection_threshold = 1.96) brain connectivity in different components.
+We repeat the training process several times to obtain a more robust result and identify these brain connectivity with significant edge weights. 
+
+$\bm P$ is denoted as the loading matrix of $X$. From $\bm P_{i,j}$, we can know how a edge $i$ contribute to the component $j$. We assume that these more relevant edges will have greater weight in $\bm P$. Therefore, we can select these top relevant edges in each component based on $\bm P$.
+
+The gained a more robust result, we train the PLSR $T$ times with the $o$ folders cross-validation. Then we obtain $P = \{\bm P^1, \cdots, \bm P^{T* o} \}$, then we average these $T$ result to obtain $\overline{\bm P}$.
+
+With $\overline{\bm P}$, we can select these top relevant edges for each component with the edge_selection_threshold based on the z score of the loading weight for each edge.
+
+Significant edges for each component can be found in files whose paths are "result/original_{component index}_by_rank.edge". 
+
+We visualize these top (edge_selection_threshold = 1.96) brain connectivity in different components.
 
 ![](result/original-concat-0.png)
 ![](result/original-concat-1.png)
 ![](result/original-concat-2.png)
 ![](result/original-concat-3.png)
-![](result/original-concat-4.png) -->
+![](result/original-concat-4.png)
