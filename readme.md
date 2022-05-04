@@ -66,6 +66,8 @@ The tolerance used as convergence criteria in the power method: the algorithm st
 
 - **repeat_time**, int, default=1000. The repeat time of PLS. The PLS is training with several repetitions to identify these brain connectivity with significantly high weights.
 
+- **folder**, int, default=5. 
+
 
 ## Attributes
 
@@ -95,8 +97,11 @@ The tolerance used as convergence criteria in the power method: the algorithm st
 
 ### score(X, y)
 
+
 <!-- itemline -->
-- Return the coefficient of determination of the prediction. The coefficient of determination is applied as the evaluation metric. The coefficient of determination  is defined as (1-mu/nu), where mu is the residual sum of squares ((y_true - y_pred)** 2).sum() and nu is the total sum of squares ((y_true - y_true.mean()) ** 2).sum(). The best possible score is 1.0 and it can be negative (because the model can be arbitrarily worse). A constant model that always predicts the expected value of y, disregarding the input features, would get a score of 0.0.
+- Return the coefficient of determination of the prediction. The coefficient of determination is applied as the evaluation metric. 
+
+- The coefficient of determination  is defined as (1-mu/nu), where mu is the residual sum of squares ((y_true - y_pred)** 2).sum() and nu is the total sum of squares ((y_true - y_true.mean()) ** 2).sum(). The best possible score is 1.0 and it can be negative (because the model can be arbitrarily worse). A constant model that always predicts the expected value of y, disregarding the input features, would get a score of 0.0.
 
 
 
@@ -154,7 +159,7 @@ When using the best component:
         R^2 Cross Validation: 0.661
         MSE Cross Validation: 0.339
 
-X Loading
+## Information on X Loading
 Component1, threshold: 1.96, edge num: 38
 Component2, threshold: 1.96, edge num: 35
 Component3, threshold: 1.96, edge num: 38
@@ -166,10 +171,10 @@ The result of Component3 saved in PLS_result/original_2_by_rank.edge
 The result of Component4 saved in PLS_result/original_3_by_rank.edge
 The result of Component5 saved in PLS_result/original_4_by_rank.edge
 
-Performance 
+## Performance 
 R2: 0.6358
 
-Y Loading
+## Y Loading
            Component1  Component2  Component3  Component4  Component5
 Variable1   -0.089953    0.064141   -0.033195    0.109111   -0.048392
 Variable2   -0.082162    0.100282    0.087243   -0.004185   -0.065318
@@ -202,7 +207,7 @@ The Y loading matrix is ndarray of shape (n_targets, n_components). The element 
 The X loading matrix is ndarray of shape (n_imaging_features, n_components). The element in the ith row and jth column can be seen as the importance between the ith imaging features and the PLSR latent component j.
 
 
-### Identify significant edges by X loading
+<!-- ### Identify significant edges by X loading
 
 We repeat the training process several times to obtain a more robust result and identify these brain connectivity with significant edge weights. 
 
@@ -212,7 +217,7 @@ The gained a more robust result, we train the PLSR $T$ times with the $o$ folder
 
 With $\overline{\bm P}$, we can select these top relevant edges for each component with the edge_selection_threshold based on the z score of the loading weight for each edge.
 
-Significant edges for each component can be found in files whose paths are "result/original_{component index}_by_rank.edge". 
+Significant edges for each component can be found in files whose paths are "result/original_{component index}_by_rank.edge".  -->
 
 <!-- We visualize these top (edge_selection_threshold = 1.96) brain connectivity in different components.
 
