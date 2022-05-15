@@ -60,12 +60,15 @@ class PLSForBrainImaging:
                 plt.plot(component[msemin], np.array(mse)
                          [msemin], 'P', ms=10, mfc='red')
                 plt.xlabel('Number of PLS components')
-                plt.ylabel('R-Squared')
+                plt.ylabel('R^2 Cross Validation')
                 plt.xlim(left=-1)
 
             plt.tight_layout()
 
             plt.savefig(name)
+
+            plt.clf()
+            plt.cla()
 
         # Define PLS object with optimal number of components
         pls_opt = PLSRegression(n_components=msemin+1,
@@ -87,10 +90,10 @@ class PLSForBrainImaging:
         mse_cv = mean_squared_error(y, y_cv)
 
         print("When using the best component:")
-        print('\tR2 calib: %5.3f' % score_c)
-        print('\tR2 CV: %5.3f' % score_cv)
-        print('\tMSE calib: %5.3f' % mse_c)
-        print('\tMSE CV: %5.3f' % mse_cv)
+        # print('\tR2 calib: %5.3f' % score_c)
+        print('\tR^2 Cross Validation: %5.3f' % score_cv)
+        # print('\tMSE calib: %5.3f' % mse_c)
+        print('\tMSE Cross Validation: %5.3f' % mse_cv)
 
         return msemin+1
 
