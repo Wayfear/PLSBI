@@ -211,11 +211,11 @@ The X loading matrix is ndarray of shape (n_imaging_features, n_components). The
 
 We repeat the training process several times to obtain a more robust result and identify these brain connectivity with significant edge weights. 
 
-$\bm P$ is denoted as the loading matrix of $X$. From $\bm P_{i,j}$, we can know how a edge $i$ contribute to the component $j$. We assume that these more relevant edges will have greater weight in $\bm P$. Therefore, we can select these top relevant edges in each component based on $\bm P$.
+$P$ is denoted as the loading matrix of $X$. From $P_{i,j}$, we can know how a edge $i$ contribute to the component $j$. We assume that these more relevant edges will have greater weight in $P$. Therefore, we can select these top relevant edges in each component based on $P$.
 
-The gained a more robust result, we train the PLSR $T$ times with the $o$ folders cross-validation. Then we obtain $P = \{\bm P^1, \cdots, \bm P^{T* o} \}$, then we average these $T$ result to obtain $\overline{\bm P}$.
+The gained a more robust result, we train the PLSR $T$ times with the $o$ folders cross-validation. Then we obtain $P = \{P^1, \cdots, P^{T* o} \}$, then we average these $T$ result to obtain $\overline{P}$.
 
-With $\overline{\bm P}$, we can select these top relevant edges for each component with the edge_selection_threshold based on the z score of the loading weight for each edge.
+With $\overline{P}$, we can select these top relevant edges for each component with the edge_selection_threshold based on the z score of the loading weight for each edge.
 
 Significant edges for each component can be found in files whose paths are "result/original_{component index}_by_rank.edge". 
 
