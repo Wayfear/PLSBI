@@ -207,7 +207,7 @@ The Y loading matrix is ndarray of shape (n_targets, n_components). The element 
 The X loading matrix is ndarray of shape (n_imaging_features, n_components). The element in the ith row and jth column can be seen as the importance between the ith imaging features and the PLSR latent component j.
 
 
-<!-- ### Identify significant edges by X loading
+### Identify significant edges by X loading
 
 We repeat the training process several times to obtain a more robust result and identify these brain connectivity with significant edge weights. 
 
@@ -217,7 +217,7 @@ The gained a more robust result, we train the PLSR $T$ times with the $o$ folder
 
 With $\overline{\bm P}$, we can select these top relevant edges for each component with the edge_selection_threshold based on the z score of the loading weight for each edge.
 
-Significant edges for each component can be found in files whose paths are "result/original_{component index}_by_rank.edge".  -->
+Significant edges for each component can be found in files whose paths are "result/original_{component index}_by_rank.edge". 
 
 <!-- We visualize these top (edge_selection_threshold = 1.96) brain connectivity in different components.
 
