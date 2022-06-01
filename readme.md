@@ -78,7 +78,7 @@ The tolerance used as convergence criteria in the power method: the algorithm st
 
 - $R^2$ is the coefficient of determination, defined as $1-\frac{\mu}{\nu}$, where $\mu$ is the residual sum of squares $\sum(y - \hat{y})^2$ and $\nu$ is the total sum of squares $\sum(y - \bar{y})^2$. The best possible score is 1.0 and it can be negative (because the model can be arbitrarily worse). A constant model that always predicts the expected value of y, disregarding the input features, would get a score of 0.0.
 
-- MSE is mean squared error,  defined as $$\frac{1}{n}\sum^{n}_{i=1}(y_i-\hat{y_i})^2$$
+- MSE is mean squared error,  defined as $\frac{1}{n}\sum^{n}_{i=1}(y_i-\hat{y_i})^2$
  
 ## Functoins to call
 
