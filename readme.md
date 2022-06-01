@@ -56,7 +56,7 @@ Whether to scale X and y.
 The maximum number of iterations of the power method when algorithm='nipals'. Ignored otherwise.
 
 - **tol**, float, default=1e-06
-The tolerance used as convergence criteria in the power method: the algorithm stops whenever the squared norm of u_i - u_{i-1} is less than tol, where u corresponds to the left singular vector.
+The tolerance used as convergence criteria in the power method: the algorithm stops whenever the squared norm of $u_i - u_{i-1}$ is less than tol, where u corresponds to the left singular vector.
 
 - **correlation_threshold**, float, default=0.28. The threshold is used to select correlated edges.
 
@@ -74,6 +74,12 @@ The tolerance used as convergence criteria in the power method: the algorithm st
 - **x_loading**, ndarray of shape (repeat_time, n_selected_edge, n_components), n_selected_edge is the number of used ROIs, n_components is the number of component. The loadings of X.
 - **y_loading**, ndarray of shape (n_targets, n_components). The loadings of y. n_targets is the number of clinical variables, n_components is the number of components. The loadings of y.
 
+## Metric
+
+- $R^2$ is the coefficient of determination, defined as $1-\frac{\mu}{\nu}$, where $\mu$ is the residual sum of squares $\sum^n_{i=1}{(y_i-\hat{y}_i)^2}$ and $\nu$ is the total sum of squares $\sum^n_{i=1}{(y_i - \bar{y}_i)^2}$. The best possible score is 1.0 and it can be negative (because the model can be arbitrarily worse). A constant model that always predicts the expected value of y, disregarding the input features, would get a score of 0.0.
+
+- MSE is mean squared error,  defined as $\frac{1}{n}\sum^n_{i=1}{(y_i-\hat{y_i})^2}$
+ 
 ## Functoins to call
 
 ### **fit(X, y)**
@@ -99,17 +105,14 @@ The tolerance used as convergence criteria in the power method: the algorithm st
 
 
 <!-- itemline -->
-- Return the coefficient of determination of the prediction. The coefficient of determination is applied as the evaluation metric. 
-
-- The coefficient of determination  is defined as (1-mu/nu), where mu is the residual sum of squares ((y_true - y_pred)** 2).sum() and nu is the total sum of squares ((y_true - y_true.mean()) ** 2).sum(). The best possible score is 1.0 and it can be negative (because the model can be arbitrarily worse). A constant model that always predicts the expected value of y, disregarding the input features, would get a score of 0.0.
-
+- Return the coefficient of determination $R^2$ of the prediction. The coefficient of determination is applied as the evaluation metric. 
 
 
 - Parameters: 
 **X**, a ndarray of shape (n_samples, n_node_size, n_node_size), where n_samples is the number of subjects, n_node_size is the number of ROIs.
 **y**, a ndarray of shape (n_samples, n_targets), where n_samples is the number of subjects, n_targets is the number of clinical variables.
 
-- Return: **Score**, float. Returns the R^2 score.
+- Return: **Score**, float. Returns the $R^2$ score.
 
 ## Usage
 
@@ -188,7 +191,7 @@ Our PLSForBrainImaging will try different component numbers and find one that be
 
 ### Performance
 
-**R^2 Cross Validation**: 0.6358
+**$R^2$ Cross Validation**: 0.6358
 
 ### Y Loading
 
